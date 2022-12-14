@@ -1,3 +1,6 @@
 *.txt
 *.npy
-
+*train.pth
+*test.pth
+*validate.pth
+*upsample.pth
