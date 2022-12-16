@@ -25,7 +25,7 @@ def plot_losses_seperatly(history):
 
   # Extract train and valid kl loss:
   train_kl_loss = [x['train_kl_loss'] for x in history]
-  valid_kl_loss  = [x['valdi_kl_loss'] for x in history]
+  valid_kl_loss  = [x['valid_kl_loss'] for x in history]
   
   # Plot train and valid kl loss:
   axs[1].plot(train_kl_loss,label = 'train')

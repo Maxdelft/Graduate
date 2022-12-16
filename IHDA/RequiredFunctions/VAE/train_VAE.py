@@ -4,22 +4,22 @@ import os
 
 ################ Train test function ######################
 
-def train_test(beta,model,dir_store_folder,optimizer,trainloader,testloader,epochs,device):
+def train_test(beta,model,dir_store_folder,optimizer,trainloader,validationloader,epochs,device):
   '''
   Function: performs training and testing procedure
 
   Input:
         beta: beta used for training VAE
         model: model to be optimized
-        dir_store_folder: folder where to store best model
-        lr              : learning used for training
-        trainloader     : dataloader used for training
-        testloader      : dataloader used for testing
-        epochs          : Number of training epochs
+        dir_store_folder : folder where to store best model
+        lr               : learning used for training
+        trainloader      : dataloader used for training
+        validationloader : dataloader used for validation
+        epochs           : Number of training epochs
   Output:
-        history: list containg training and testing losses
-        model: trained model
-        optimizer: optimizer
+        history   : list containg training and testing losses
+        model     : trained model
+        optimizer : optimizer
   '''
   
   # Initialize SaveBestModel() class:
@@ -32,19 +32,19 @@ def train_test(beta,model,dir_store_folder,optimizer,trainloader,testloader,epoc
     
     # Train and Test
     train_loss , train_rec_loss , train_kl_loss = train(trainloader, model, device,optimizer,beta)
-    test_loss, test_rec_loss, test_kl_loss      = test(testloader, model, device,beta)
+    valid_loss, valid_rec_loss, valid_kl_loss   = test(validationloader, model, device,beta)
      
     # Update save_best_model
     
-    save_best_model(test_loss, epoch, model, optimizer,dir_store_folder)
+    save_best_model(valid_loss, epoch, model, optimizer,dir_store_folder)
        
     # Store calculated losses in array:
-    result = {'train_loss':train_loss,'test_loss': test_loss,'train_rec_loss': train_rec_loss, 'train_kl_loss':train_kl_loss,'test_rec_loss': test_rec_loss, 'test_kl_loss':test_kl_loss}
+    result = {'train_loss':train_loss,'train_rec_loss': train_rec_loss, 'train_kl_loss':train_kl_loss,'valid_loss': valid_loss,'valid_rec_loss': valid_rec_loss, 'valid_kl_loss':valid_kl_loss}
     history.append(result)
     
     # Print training and testing loss:
-    print("Epoch [{}], train_loss: {:.4f},test_loss: {:.4f}".format(
-          epoch, train_loss, test_loss))
+    print("Epoch [{}], train_loss: {:.4f},valid_loss: {:.4f}".format(
+          epoch, train_loss, valid_loss))
 
   return history, model, optimizer
 
@@ -208,7 +208,7 @@ def create_directory_VAE(beta, latent_dims, epochs,layer,dir_IHDA):
     dir_store_folder : diectory of where results will be stored
   '''
   
-  dir_store_folder = dir_IHDA + 'VAE' +'/VAE_'+str(layer)+'/Models/VAE_beta_'+str(beta) + '_latent_dims_' + str(latent_dims) + '_epochs_' + str(epochs) +'/'
+  dir_store_folder = dir_IHDA + 'Hyperparametersearch/Results/beta_VAE/'+ '/VAE_'+str(layer)+'/VAE_beta_'+str(beta) + '_latent_dims_' + str(latent_dims) + '_epochs_' + str(epochs) +'/'
   
   if os.path.isdir(dir_store_folder) == False:
     os.mkdir(dir_store_folder)

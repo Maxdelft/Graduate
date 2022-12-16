@@ -188,7 +188,7 @@ def plot_latent(x,y,model,lat_var_1,lat_var_2,n_plot):
 
 
 
-def plot_x_rec_vs_x(x_rec,x_sample,y_sample):
+def plot_x_rec_vs_x(x_rec,x_sample,y_sample,beta):
   '''
   Function: Plots original versus reconstructed signal for VAE_1
 
@@ -214,7 +214,7 @@ def plot_x_rec_vs_x(x_rec,x_sample,y_sample):
 
   # Plot reconstructe verus original sample
   fig, axs = plt.subplots(1,3)
-  fig.suptitle('Signal versus its reconstruction for label: ' + label)
+  fig.suptitle('Signal versus its reconstruction for beta: '+ str(beta) +' and label: ' + label)
 
   axs[0].plot(xf, x_rec[:251],label = 'X_rec', color = 'orange',linewidth =4)
   axs[0].plot(xf, x_sample[:251],label = 'X', color = 'blue',linewidth =1.5)
@@ -230,3 +230,5 @@ def plot_x_rec_vs_x(x_rec,x_sample,y_sample):
   axs[2].plot(xf, x_sample[502:753],label = 'X', color = 'blue', linewidth  = 1.5 )
   axs[2].title.set_text('Magnetometer')
   axs[2].legend()
+  plt.show()
+  plt.close()

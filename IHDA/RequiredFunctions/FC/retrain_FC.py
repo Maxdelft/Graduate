@@ -156,11 +156,11 @@ def store_final_classifier(epoch,classifier,optimizer,dir_store_folder):
         optimizer        : optimizer
         dir_store_folder : direcotry of folder to store final model
     '''
-     torch.save({
-                'epoch': epoch+1,
-                'model_state_dict': classifier.state_dict(),
-                'optimizer_state_dict': optimizer.state_dict(),
-                }, dir_store_folder + '/final_model.pth')
+    torch.save({
+        'epoch': epoch+1,
+        'model_state_dict': classifier.state_dict(),
+        'optimizer_state_dict': optimizer.state_dict(),
+        }, dir_store_folder + '/final_model.pth')
 
 
 def generate_retrainset(X_pot,Y_pot,VAE,device):
