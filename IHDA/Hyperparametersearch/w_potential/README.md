@@ -32,5 +32,5 @@ The follwoing observations should be made:
 For visualization the 2d latent space representation of the VAE is plotted. The points with positive potential are marked lime green. The following potential points belong to *W=0.1* :
 ![ls_w_0.1](https://github.com/Maxdelft/Graduate/blob/main/IHDA/Images/Results/w_potential/ls_w_0.1.png)
 
-whereas the following potential points belong to *w=0.9998 *: 
+whereas the following potential points belong to *w=0.9998*: 
 ![ls_w_0.9998](https://github.com/Maxdelft/Graduate/blob/main/IHDA/Images/Results/w_potential/ls_w_0.9998.png)
