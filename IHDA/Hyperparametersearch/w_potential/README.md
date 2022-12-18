@@ -27,3 +27,10 @@ The follwoing observations should be made:
 * up to a value of *w* equal to 0.95 the distribution of the classes in dataset of points with positive potential is approximatley as follows: *Still ~ 22%, Walking ~2.5%, Run ~0.2%, Bike ~4%, Car ~ 20%, Bus ~ 19%, Train ~ 18%* and *Subway ~ 12%*
 * up to a value of *w* equal to 0.990 and 0.9991 the following changes of the distribution should be highlighted: *Still ~10% (-12%), Bus ~ 22% (+3%), Train ~ 24% (+6%)* and *Subway ~ 16 (+4%)*
 * and lastly, for values of *w* between *0.9994* and *0.9998* the distribution of the different classes varies
+
+
+For visualization the 2d latent space representation of the VAE is plotted. The points with positive potential are marked lime green. The following potential points belong to *W=0.1* :
+![ls_w_0.1](https://github.com/Maxdelft/Graduate/blob/main/IHDA/Images/Results/w_potential/ls_w_0.1.png)
+
+whereas the following potential points belong to *w=0.9998 *: 
+![ls_w_0.9998](https://github.com/Maxdelft/Graduate/blob/main/IHDA/Images/Results/w_potential/ls_w_0.9998.png)
