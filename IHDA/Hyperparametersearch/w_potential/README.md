@@ -15,11 +15,18 @@ Speaking, all samples *q* for which the distance between them and the considered
 
 #### Cosine Similarity
 
-The cosine similarity is described mathematically as the division between the dot product of vectors and the product of the euclidean norms or magnitude of each vector. The similarity measurement is bounded between 0 and 1 and represents a measure of the cosine of the angle between the two non-zero vectors *A* and *B*. If the angle between two vectors is 90 degrees, the cosine similairty will have a value of 0, which means that two vectors are orthogonal or perpendiciular to each other. As the cosine similarity measurement gets closer to 1, then the angle between the two vectors A and B becomes smaller.
+The cosine similarity is described mathematically as the division between the dot product of vectors and the product of the euclidean norms or magnitude of each vector. The similarity measurement is bounded between -1 and 1 and represents a measure of the cosine of the angle between the two non-zero vectors *A* and *B*. If the angle between two vectors is 90 degrees, the cosine similairty will have a value of 0, which means that two vectors are orthogonal or perpendiciular to each other. As the cosine similarity measurement gets closer to 1, then the angle between the two vectors A and B becomes smaller.
 
 Accordingly, the more similar two samples are, the smaller the angle between those two samples and accordintly the higher the value for the cosine similarity. It should be observed that in opposite to most other similarity metrices, for this metrics it holds that the more similar two samples are the higher the value of the similairty metrics. Accordingly, using the cosine similairty the sample *q* belongs to the neighbourhood of *p* if  *dist(p,q) >= w*.
-
 ![Cosine Similairty](https://github.com/Maxdelft/Graduate/blob/main/IHDA/Images/Results/w_potential/cosine_similairty.png)
+
+#### Cosine Similarity Applied to IHDA
+In the following the 2d latent space representation of a subset of the training data is plotted. Furthermore one sample is extacted and the Cosine Similarity to the plotted subset is calculated. The 400 samples with the highest (black) and lowest (olivegreen) similarity metric are marked in the laten space representation. Visually it can be observed that samples with high cosine similarity are close the considered sample, whereas samples with a low cosine similarity are further away.
+
+![Cosine Similairty](https://github.com/Maxdelft/Graduate/blob/main/IHDA/Images/Results/w_potential/Z_i_cs.png)
+
+#### 
+
 
 ### Potential
 
