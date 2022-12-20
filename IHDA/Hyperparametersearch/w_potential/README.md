@@ -59,10 +59,28 @@ Now lets take a close look of the 'dynamics' of:
 ![Potential](https://github.com/Maxdelft/Graduate/blob/main/IHDA/Images/Results/w_potential/e_potential.png)
 
 If two samples are 'far' away from each other this value becomes large. Accordingly it behaves opposite to what I would intutivley do.
-Therefore would it not make sense to use a penalization that behaves similar to: e^(1/(||p-q||))?
+Therefore, would it not make sense to use the following penalization: e^(-(||p-q||)^2/gamma) or atleast a term with similar properties?
 
 To clarify the critism on the current way of calculating the potential two situations are sketched for which the current algorithm would calulate a positive potential (case 1) and a negative potential (case 2).
 ![Potential](https://github.com/Maxdelft/Graduate/blob/main/IHDA/Images/Results/w_potential/critisim_on_potential.png)
+
+#### Potential Applied to IHDA:
+
+The potential step is implemented as previously described. The following figure displays the latent space representation of a subset of the training data. Furthermore, the points with positive potential are marked limegreen.
+
+![Potential](https://github.com/Maxdelft/Graduate/blob/main/IHDA/Images/Results/w_potential/w_0.985_paper.png)
+
+
+#### Difference between IHDA and adjusted potential method
+As discussed in part 'Thoughts on calculating the potential' in comparision to the authors of the [IHDA](https://proceedings.neurips.cc/paper/2020/file/074177d3eb6371e32c16c55a3b8f706b-Paper.pdf) algorithm, we propose to use the following penalization term: e^(-(||p-q||)^2/gamma) for calculating the potential of a point. Therefore, we briefly study the difference between those methods. For large values of *w* (small neighbourhood) the number of found potential points is approximatly equal. Using the adjusted method results into the following latent space representation for *w=0.985*:
+![Potential](https://github.com/Maxdelft/Graduate/blob/main/IHDA/Images/Results/w_potential/w_0985_max.png)
+
+However, for small values of *w* (large neighbourhood), the outcome of potential points differs massivley. Using the method presented by the authors of the IHDA algorithm results in:
+![Potential](https://github.com/Maxdelft/Graduate/blob/main/IHDA/Images/Results/w_potential/w_0.1_paper.png)
+whereas using the adjusted method results in:
+![Potential](https://github.com/Maxdelft/Graduate/blob/main/IHDA/Images/Results/w_potential/w_0.1_max.png)
+
+
 
 ### Performance of baseline classifer: 
 Let's first have a look at the performance of the baseline classifier, which are summarized below:
