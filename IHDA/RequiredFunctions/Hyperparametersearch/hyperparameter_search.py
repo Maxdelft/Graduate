@@ -333,3 +333,57 @@ def highlight_confusion_matrix_difference(df):
           a[row,coloumn] = 'background-color: green'
           
   return pd.DataFrame(a, index=df.index, columns=df.columns)
+
+def extract_N(dir_results, ws):
+  
+  N_frac, N = [], []
+  N_Mode = []
+  
+  for w in ws:
+    dir_results_w = dir_results + 'w_'+str(w)+'/results_w_'+str(w)+'.pth'
+    results_w     = torch.load(dir_results_w)
+    n             =  len(results_w['idx_x_train_pot'])
+    n_frac        = n/len(x_train)*100
+
+    N.append(n)     
+    N_frac.append(n_frac)
+    
+    idx_x_train_pot = results_w['idx_x_train_pot']
+    y_train_pot = y_train[idx_x_train_pot.detach().cpu()]
+    N_mode = []
+    for mode in range(8):
+      n_mode = len(np.where(y_train_pot == mode)[0])
+      N_mode.append(n_mode)
+    N_Mode.append(N_mode)
+  N_Mode = np.reshape(N_Mode,(len(ws),8))
+
+  return N_Mode, N, N_frac
+
+def classdistribution_potential(N_Mode,N,N_frac,ws):
+  index = ws
+  
+  d = {'% of dataset': N_frac,
+       '% Still':N_Mode[:,0]/N*100,
+       '% Walking': N_Mode[:,1]/N*100,
+       '% Run': N_Mode[:,2]/N*100,
+       '% Bike': N_Mode[:,3]/N*100,
+       '% Car': N_Mode[:,4]/N*100,
+       '% Bus': N_Mode[:,5]/N*100,
+       '% Train': N_Mode[:,6]/N*100,
+       '% Subway': N_Mode[:,7]/N*100,
+       }
+  df_N_per = pd.DataFrame(data=d, index = index)
+ 
+
+  d = {'Number of samples': N,
+    'N Still'  : N_Mode[:,0],
+    'N Walking': N_Mode[:,1],
+     'N Run'   : N_Mode[:,2],
+     'N Bike'  : N_Mode[:,3],
+     'N Car'   : N_Mode[:,4],
+     'N Bus'   : N_Mode[:,5],
+     'N Train' : N_Mode[:,6],
+     'N Subway': N_Mode[:,7],
+     }
+  df_N_total = pd.DataFrame(data=d, index = index)
+  return df_N_per, df_N_total
