@@ -47,7 +47,7 @@ If two samples are 'far' away from each other this value becomes large. Accordin
 Therefore would it not make sense to use a penalization that behaves similar to: e^(1/(||p-q||))?
 
 To clarify the critism on the current way of calculating the potential two situations are sketched for which the current algorithm would calulate a positive potential (case 1) and a negative potential (case 2).
-![Potential](https://github.com/Maxdelft/Graduate/blob/main/IHDA/Images/Results/w_potential/critics_on_potential.png)
+![Potential](https://github.com/Maxdelft/Graduate/blob/main/IHDA/Images/Results/w_potential/critisim_on_potential.png)
 
 ### Performance of baseline classifer: 
 Let's first have a look at the performance of the baseline classifier, which are summarized below:
