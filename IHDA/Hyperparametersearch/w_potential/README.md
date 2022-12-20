@@ -29,10 +29,10 @@ For every sample *q* in the neighbourhood of the sample *p* the following calcul
 ![Potential](https://github.com/Maxdelft/Graduate/blob/main/IHDA/Images/Results/w_potential/e_potential.png)
 
 The higher the difference between the samples *p* and *q*, the higher the value gets.Furthermore, gamma represents a hyperparameter that can be used to influence the slope of the function. The authors of the [IHDA](https://proceedings.neurips.cc/paper/2020/file/074177d3eb6371e32c16c55a3b8f706b-Paper.pdf) algorithm have fixed gamma to a value of gamma = 0.05. 
- 
-Following, having calculated the 'e to the power' value for the sample *q* it is added to the potential value of *p* if the samples *p* and *q* are of different class or substracted if they are of the same class.
- 
- 
+
+The potential of sample *p* is calculated by iterating through the neighbourhood of the considered sample. For every neighbouring sample *q* the 'e to the power' value is calculated. It is is added to the potential value of *p* if the samples *p* and *q* are of different class or substracted if they are of the same class. Finally, the potential of sample *p* represents a measure that reflects by how many samples of different class/ same class the considered sample is surrounded. The [IHDA](https://proceedings.neurips.cc/paper/2020/file/074177d3eb6371e32c16c55a3b8f706b-Paper.pdf) algorithm assumes that if a sample *p* has positive potential, it is surrounded by more samples of different class than of same class and therefore retraining the classifier on this sample should be performed.
+
+The algorithm to calculate a samples potential can be described as follows:
 ![Potential](https://github.com/Maxdelft/Graduate/blob/main/IHDA/Images/Results/w_potential/Potential.png)
 
 ### Performance of baseline classifer: 
