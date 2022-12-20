@@ -21,6 +21,14 @@ Accordingly, the more similar two samples are, the smaller the angle between tho
 
 ![Cosine Similairty](https://github.com/Maxdelft/Graduate/blob/main/IHDA/Images/Results/w_potential/cosine_similairty.png)
 
+### Potential
+
+After having defined which samples *q* belong to the neighbourhood of the sample *p*, calculating the potential of sample *p* can be introduced. The potential of sample *p* is calculated by iterating through all samples contained in the the defined neighbourhood.
+
+For every sample *q* in the neighbourhood of the sample *p* the following calculation is made:
+
+![Potential](https://github.com/Maxdelft/Graduate/blob/main/IHDA/Images/Results/w_potential/Potential.png)
+
 ### Performance of baseline classifer: 
 Let's first have a look at the performance of the baseline classifier, which are summarized below:
 ![performance_stats_BC](https://github.com/Maxdelft/Graduate/blob/main/IHDA/Images/Results/BaselineClassifier/performance_stats_BC.png)
