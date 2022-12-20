@@ -35,6 +35,17 @@ The potential of sample *p* is calculated by iterating through the neighbourhood
 The algorithm to calculate a samples potential can be described as follows:
 ![Potential](https://github.com/Maxdelft/Graduate/blob/main/IHDA/Images/Results/w_potential/Potential.png)
 
+#### Thoughts on calculating the potential
+
+In the following I will briefly elobrate on some thoughts regarding the potential step. 
+Intuitvley I would say that, if two samples are of different class, but they are close the value added to the potential should be high. In very close neighbours of different class are penalized more than samples of different class that are furhter away. The opposite should hold for substracting a value from the potential, if they are of the same class.
+
+Now lets take a close look of the 'dynamics' of:
+![Potential](https://github.com/Maxdelft/Graduate/blob/main/IHDA/Images/Results/w_potential/e_potential.png)
+
+If two samples are 'far' away from each other this value becomes large. Accordingly it behaves opposite to what I would intutivley do.
+Therefore would it not make sense to use a penalization that behaves similar to: e^(1/(||p-q||))?
+
 ### Performance of baseline classifer: 
 Let's first have a look at the performance of the baseline classifier, which are summarized below:
 ![performance_stats_BC](https://github.com/Maxdelft/Graduate/blob/main/IHDA/Images/Results/BaselineClassifier/performance_stats_BC.png)
