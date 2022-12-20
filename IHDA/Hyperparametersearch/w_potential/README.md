@@ -26,8 +26,25 @@ Accordingly, the more similar two samples are, the smaller the angle between tho
 After having defined which samples *q* belong to the neighbourhood of the sample *p*, calculating the potential of sample *p* can be introduced. The potential of sample *p* is calculated by iterating through all samples contained in the the defined neighbourhood.
 
 For every sample *q* in the neighbourhood of the sample *p* the following calculation is made:
+![Potential](https://github.com/Maxdelft/Graduate/blob/main/IHDA/Images/Results/w_potential/e_potential.png)
 
+The higher the difference between the samples *p* and *q*, the higher the value gets.Furthermore, gamma represents a hyperparameter that can be used to influence the slope of the function. The authors of the [IHDA](https://proceedings.neurips.cc/paper/2020/file/074177d3eb6371e32c16c55a3b8f706b-Paper.pdf) algorithm have fixed gamma to a value of gamma = 0.05. 
+
+The potential of sample *p* is calculated by iterating through the neighbourhood of the considered sample. For every neighbouring sample *q* the 'e to the power' value is calculated. It is is added to the potential value of *p* if the samples *p* and *q* are of different class or substracted if they are of the same class. Finally, the potential of sample *p* represents a measure that reflects by how many samples of different class/ same class the considered sample is surrounded. The [IHDA](https://proceedings.neurips.cc/paper/2020/file/074177d3eb6371e32c16c55a3b8f706b-Paper.pdf) algorithm assumes that if a sample *p* has positive potential, it is surrounded by more samples of different class than of same class and therefore retraining the classifier on this sample should be performed.
+
+The algorithm to calculate a samples potential can be described as follows:
 ![Potential](https://github.com/Maxdelft/Graduate/blob/main/IHDA/Images/Results/w_potential/Potential.png)
+
+#### Thoughts on calculating the potential
+
+In the following I will briefly elobrate on some thoughts regarding the potential step. 
+Intuitvley I would say that, if two samples are of different class, but they are close the value added to the potential should be high. In very close neighbours of different class are penalized more than samples of different class that are furhter away. The opposite should hold for substracting a value from the potential, if they are of the same class.
+
+Now lets take a close look of the 'dynamics' of:
+![Potential](https://github.com/Maxdelft/Graduate/blob/main/IHDA/Images/Results/w_potential/e_potential.png)
+
+If two samples are 'far' away from each other this value becomes large. Accordingly it behaves opposite to what I would intutivley do.
+Therefore would it not make sense to use a penalization that behaves similar to: e^(1/(||p-q||))?
 
 ### Performance of baseline classifer: 
 Let's first have a look at the performance of the baseline classifier, which are summarized below:
