@@ -3,6 +3,17 @@
 In the following section, the main results of the hyperparameter search of the distance parameter *w* will be highlighted. *w* represents the distance between 
 two samples. If the coresponding distance is smaller than *w* the sample will be considered for calculating the potential of a certain sample.
 
+### Neighbourhood:
+First, the potential is a property of every sample in the training dataset. The goal of the potential is to identify samples that are surrounded in their neighbourhood by more samples belonging to a different class than of its own. Therefore, first a definition of the neighbourhood of a sample is requried.
+
+### Neighbourhood
+
+The authors of the [IHDA](https://proceedings.neurips.cc/paper/2020/file/074177d3eb6371e32c16c55a3b8f706b-Paper.pdf) algorithm define the neighbourhood of a sample as follows:
+![performance_stats_BC](https://github.com/Maxdelft/Graduate/blob/main/IHDA/Images/Results/w_potential/neighbourhood.png)
+
+![performance_stats_BC](https://github.com/Maxdelft/Graduate/blob/main/IHDA/Images/Results/w_potential/Potential.png)
+
+![performance_stats_BC](https://github.com/Maxdelft/Graduate/blob/main/IHDA/Images/Results/w_potential/neighbourhood.png)
 ### Performance of baseline classifer: 
 Let's first have a look at the performance of the baseline classifier, which are summarized below:
 ![performance_stats_BC](https://github.com/Maxdelft/Graduate/blob/main/IHDA/Images/Results/BaselineClassifier/performance_stats_BC.png)
