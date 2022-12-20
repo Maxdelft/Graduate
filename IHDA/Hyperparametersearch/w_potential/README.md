@@ -25,7 +25,15 @@ In the following the 2d latent space representation of a subset of the training 
 
 ![Cosine Similairty](https://github.com/Maxdelft/Graduate/blob/main/IHDA/Images/Results/w_potential/Z_i_cs.png)
 
-#### 
+#### Neighbourhood Applied to IHDA
+
+In the following the neighbouring samples of the limegreen sample are marked black using the cosine similarity. It can be recognized, the higher the value of *w* the less samples belong to the neighbourhood of the limegreen sample.
+
+![Cosine Similairty](https://github.com/Maxdelft/Graduate/blob/main/IHDA/Images/Results/w_potential/neighbours_-0.95.png)
+![Cosine Similairty](https://github.com/Maxdelft/Graduate/blob/main/IHDA/Images/Results/w_potential/neighbours_w_0.png)
+![Cosine Similairty](https://github.com/Maxdelft/Graduate/blob/main/IHDA/Images/Results/w_potential/neighbours_w_0.5.png)
+![Cosine Similairty](https://github.com/Maxdelft/Graduate/blob/main/IHDA/Images/Results/w_potential/neighbours_w_0.9.png)
+![Cosine Similairty](https://github.com/Maxdelft/Graduate/blob/main/IHDA/Images/Results/w_potential/neighbours_w_0.985.png)
 
 
 ### Potential
