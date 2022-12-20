@@ -8,8 +8,12 @@ First, the potential is a property of every sample in the training dataset. The 
 
 ### Neighbourhood
 
-The authors of the [IHDA](https://proceedings.neurips.cc/paper/2020/file/074177d3eb6371e32c16c55a3b8f706b-Paper.pdf) algorithm define the neighbourhood of a sample as follows:
+The authors of the [IHDA](https://proceedings.neurips.cc/paper/2020/file/074177d3eb6371e32c16c55a3b8f706b-Paper.pdf) algorithm define the neighbourhood *N_p* of a sample *p* as follows:
 ![performance_stats_BC](https://github.com/Maxdelft/Graduate/blob/main/IHDA/Images/Results/w_potential/neighbourhood.png)
+
+Speaking, all samples *q* for which the distance between them and the considered sample *p* is smaller than *w* are neighbouring samples of the sample *p* and therefore belong to the neighbourhood *N_p*. It should be observed that the definition of the neighbourhood *N_p* requries a definition of the of the distance between two samples. It is reported in the paper [IHDA](https://proceedings.neurips.cc/paper/2020/file/074177d3eb6371e32c16c55a3b8f706b-Paper.pdf) that the cosine similarity matrix delivers the best results.
+
+#### Cosine Similarity Matrix
 
 ![performance_stats_BC](https://github.com/Maxdelft/Graduate/blob/main/IHDA/Images/Results/w_potential/Potential.png)
 
