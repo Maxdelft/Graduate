@@ -11,13 +11,24 @@ First, the potential is a property of every sample in the training dataset. The 
 The authors of the [IHDA](https://proceedings.neurips.cc/paper/2020/file/074177d3eb6371e32c16c55a3b8f706b-Paper.pdf) algorithm define the neighbourhood *N_p* of a sample *p* as follows:
 ![performance_stats_BC](https://github.com/Maxdelft/Graduate/blob/main/IHDA/Images/Results/w_potential/neighbourhood.png)
 
-Speaking, all samples *q* for which the distance between them and the considered sample *p* is smaller than *w* are neighbouring samples of the sample *p* and therefore belong to the neighbourhood *N_p*. It should be observed that the definition of the neighbourhood *N_p* requries a definition of the of the distance between two samples. It is reported in the paper [IHDA](https://proceedings.neurips.cc/paper/2020/file/074177d3eb6371e32c16c55a3b8f706b-Paper.pdf) that the cosine similarity matrix delivers the best results.
+Speaking, all samples *q* for which the distance between them and the considered sample *p* is smaller than *w* are neighbouring samples of the sample *p* and therefore belong to the neighbourhood *N_p*. It should be observed that the definition of the neighbourhood *N_p* requries a definition of the of the distance between two samples. It is reported in the paper [IHDA](https://proceedings.neurips.cc/paper/2020/file/074177d3eb6371e32c16c55a3b8f706b-Paper.pdf) that the cosine similarity delivers the best results.
 
-#### Cosine Similarity Matrix
+#### Cosine Similarity
 
-![performance_stats_BC](https://github.com/Maxdelft/Graduate/blob/main/IHDA/Images/Results/w_potential/Potential.png)
+The cosine similarity is described mathematically as the division between the dot product of vectors and the product of the euclidean norms or magnitude of each vector. The similarity measurement is bounded between 0 and 1 and represents a measure of the cosine of the angle between the two non-zero vectors *A* and *B*. If the angle between two vectors is 90 degrees, the cosine similairty will have a value of 0, which means that two vectors are orthogonal or perpendiciular to each other. As the cosine similarity measurement gets closer to 1, then the angle between the two vectors A and B becomes smaller.
 
-![performance_stats_BC](https://github.com/Maxdelft/Graduate/blob/main/IHDA/Images/Results/w_potential/neighbourhood.png)
+Accordingly, the more similar two samples are, the smaller the angle between those two samples and accordintly the higher the value for the cosine similarity. It should be observed that in opposite to most other similarity metrices, for this metrics it holds that the more similar two samples are the higher the value of the similairty metrics. Accordingly, using the cosine similairty the sample *q* belongs to the neighbourhood of *p* if  *dist(p,q) >= w*.
+
+![Cosine Similairty](https://github.com/Maxdelft/Graduate/blob/main/IHDA/Images/Results/w_potential/cosine_similairty.png)
+
+### Potential
+
+After having defined which samples *q* belong to the neighbourhood of the sample *p*, calculating the potential of sample *p* can be introduced. The potential of sample *p* is calculated by iterating through all samples contained in the the defined neighbourhood.
+
+For every sample *q* in the neighbourhood of the sample *p* the following calculation is made:
+
+![Potential](https://github.com/Maxdelft/Graduate/blob/main/IHDA/Images/Results/w_potential/Potential.png)
+
 ### Performance of baseline classifer: 
 Let's first have a look at the performance of the baseline classifier, which are summarized below:
 ![performance_stats_BC](https://github.com/Maxdelft/Graduate/blob/main/IHDA/Images/Results/BaselineClassifier/performance_stats_BC.png)
