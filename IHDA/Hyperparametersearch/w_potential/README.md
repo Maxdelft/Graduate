@@ -3,6 +3,21 @@
 In the following section, the main results of the hyperparameter search of the distance parameter *w* will be highlighted. *w* represents the distance between 
 two samples. If the coresponding distance is smaller than *w* the sample will be considered for calculating the potential of a certain sample.
 
+### Neighbourhood:
+First, the potential is a property of every sample in the training dataset. The goal of the potential is to identify samples that are surrounded in their neighbourhood by more samples belonging to a different class than of its own. Therefore, first a definition of the neighbourhood of a sample is requried.
+
+### Neighbourhood
+
+The authors of the [IHDA](https://proceedings.neurips.cc/paper/2020/file/074177d3eb6371e32c16c55a3b8f706b-Paper.pdf) algorithm define the neighbourhood *N_p* of a sample *p* as follows:
+![performance_stats_BC](https://github.com/Maxdelft/Graduate/blob/main/IHDA/Images/Results/w_potential/neighbourhood.png)
+
+Speaking, all samples *q* for which the distance between them and the considered sample *p* is smaller than *w* are neighbouring samples of the sample *p* and therefore belong to the neighbourhood *N_p*. It should be observed that the definition of the neighbourhood *N_p* requries a definition of the of the distance between two samples. It is reported in the paper [IHDA](https://proceedings.neurips.cc/paper/2020/file/074177d3eb6371e32c16c55a3b8f706b-Paper.pdf) that the cosine similarity matrix delivers the best results.
+
+#### Cosine Similarity Matrix
+
+![performance_stats_BC](https://github.com/Maxdelft/Graduate/blob/main/IHDA/Images/Results/w_potential/Potential.png)
+
+![performance_stats_BC](https://github.com/Maxdelft/Graduate/blob/main/IHDA/Images/Results/w_potential/neighbourhood.png)
 ### Performance of baseline classifer: 
 Let's first have a look at the performance of the baseline classifier, which are summarized below:
 ![performance_stats_BC](https://github.com/Maxdelft/Graduate/blob/main/IHDA/Images/Results/BaselineClassifier/performance_stats_BC.png)
