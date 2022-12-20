@@ -26,7 +26,13 @@ Accordingly, the more similar two samples are, the smaller the angle between tho
 After having defined which samples *q* belong to the neighbourhood of the sample *p*, calculating the potential of sample *p* can be introduced. The potential of sample *p* is calculated by iterating through all samples contained in the the defined neighbourhood.
 
 For every sample *q* in the neighbourhood of the sample *p* the following calculation is made:
+![Potential](https://github.com/Maxdelft/Graduate/blob/main/IHDA/Images/Results/w_potential/e_potential.png)
 
+The higher the difference between the samples *p* and *q*, the higher the value gets.Furthermore, gamma represents a hyperparameter that can be used to influence the slope of the function. The authors of the [IHDA](https://proceedings.neurips.cc/paper/2020/file/074177d3eb6371e32c16c55a3b8f706b-Paper.pdf) algorithm have fixed gamma to a value of gamma = 0.05. 
+ 
+Following, having calculated the 'e to the power' value for the sample *q* it is added to the potential value of *p* if the samples *p* and *q* are of different class or substracted if they are of the same class.
+ 
+ 
 ![Potential](https://github.com/Maxdelft/Graduate/blob/main/IHDA/Images/Results/w_potential/Potential.png)
 
 ### Performance of baseline classifer: 
